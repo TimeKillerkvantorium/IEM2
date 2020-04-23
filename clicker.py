@@ -7,6 +7,7 @@ init()
 
 clicks = 0  # Переменная, в которой будут все клики
 level = 0  # Уровень пользователя в игре
+
 def clicked():
     btn5.configure(command=playsound())
 def playsound () :
@@ -15,10 +16,10 @@ def playsound () :
     song = pygame.mixer.music.load('M:/Git/IEM2/hah.mp3')
     pygame.mixer.music.play()
     clock = pygame.time.Clock()
-    song.play()
-    while True:
-        clock.tick(10)# После 10 секунд должно идти выключение, но не происходит.
-    pygame.quit()
+    pygame.mixer.music.play()
+# while True:
+#     clock.tick(10)# После 10 секунд должно идти выключение, но не происходит.
+# pygame.quit()
 
 
 
@@ -28,11 +29,13 @@ def click_button():  # Функция для кнопки "клик"
     game.title("Количество кликов: {}".format(clicks))
     if clicks == 10:
         print(Back.RED + 'Открыто достижение: Начинающий кликермен!')
+    if clicks == 15:
+        level = 1
+        print(Back.CYAN + 'Вы достигли', level ,'уровня!')
     if clicks == 50:
         print(Back.YELLOW + "Открыто достижение: На пути к чему-то большему!")
     if clicks == 100:
         print(Back.GREEN + "Открыто достижение: Первая соточка!")
-
 
 def dclick_button():  # Функция для кнопки "двойной клик"
     global clicks
@@ -40,20 +43,14 @@ def dclick_button():  # Функция для кнопки "двойной кл�
     game.title("Количество кликов: {}".format(clicks))
     if clicks == 10:
         print(Back.RED + 'Открыто достижение: Начинающий кликермен!')
+    if clicks == 15:
+        level = 1
+        print(Back.CYAN + 'Вы достигли', level ,'уровня!')
     if clicks == 50:
         print(Back.YELLOW + "Открыто достижение: На пути к чему-то большему!")
     if clicks == 100:
         print(Back.GREEN + "Открыто достижение: Первая соточка!")
-
-
-def levelM():
-    global level
-    global clicks
-    if clicks == 15:
-        level = 1
-        print('Вы достигли', level, 'уровня!')
-
-
+        
 clicker = Tk()
 game = Tk()
 
