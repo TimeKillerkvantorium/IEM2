@@ -3,10 +3,10 @@ from tkinter import *
 from colorama import init, Fore, Back
 init()
 
-clicks = 0
-level = 0
+clicks = 0  #Переменная, в которой будут все клики
+level = 0   #Уровень пользователя в игре
 
-def click_button(): 
+def click_button(): #Функция для кнопки "клик"
     global clicks 
     clicks += 1 
     game.title("Количество кликов: {}".format(clicks))
@@ -17,7 +17,7 @@ def click_button():
     if clicks == 100:
         print(Back.GREEN + "Открыто достижение: Первая соточка!")
        
-def dclick_button(): 
+def dclick_button(): #Функция для кнопки "двойной клик"
         global clicks 
         clicks += 2
         game.title("Количество кликов: {}".format(clicks))
