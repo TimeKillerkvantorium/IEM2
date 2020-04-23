@@ -1,31 +1,59 @@
+
 from tkinter import *
-from tkinter import Tk, Button
-from PIL import Image, ImageTk
-import os
-import time
+from colorama import init, Fore, Back
+init()
 
-
-from tkinter import * 
-
-clicks = 0 
-
+clicks = 0
+level = 0
 
 def click_button(): 
     global clicks 
     clicks += 1 
-    game.title("Количество кликов: {}".format(clicks)) 
-    
+    game.title("Количество кликов: {}".format(clicks))
+    if clicks == 10:
+        print(Back.RED + 'Открыто достижение: Начинающий кликермен!')
+    if clicks == 50:
+        print(Back.YELLOW + "Открыто достижение: На пути к чему-то большему!")
+    if clicks == 100:
+        print(Back.GREEN + "Открыто достижение: Первая соточка!")
+       
+def dclick_button(): 
+        global clicks 
+        clicks += 2
+        game.title("Количество кликов: {}".format(clicks))
+        if clicks == 10:
+            print(Back.RED + 'Открыто достижение: Начинающий кликермен!')
+        if clicks == 50:
+            print(Back.YELLOW + "Открыто достижение: На пути к чему-то большему!")
+        if clicks == 100:
+            print(Back.GREEN + "Открыто достижение: Первая соточка!")
+            
+def levelM():
+        global level
+        global clicks
+        if clicks == 15:
+            level = 1
+            print('Вы достигли', level, 'уровня!')
+
+            
 clicker = Tk() 
 game = Tk()
 
+      
 clicker.title("Кликер от IEM") 
 game.title("Количество кликов: 0") 
 clicker.geometry("300x250") 
 game.geometry("315x0")
 
-
-btn = Button(text="Click Me", background="#555", foreground="#ccc", 
+btn = Button(clicker, text="Клик", background="#444", foreground="#bbb", 
 padx="20", pady="8", font="16", command=click_button) 
-btn.pack() 
+btn.place(x='95',y='90')
+
+btn2 = Button(clicker, text="Двойной клик", background="#222", foreground="#ccc", 
+padx="20", pady="8", font="16", command=dclick_button) 
+btn2.place(x='50',y='150')
+
+#btn = Button(clicker, text="Не нажимать!") 
+#btn.grid(column=0, row=3)  
 
 clicker.mainloop()
