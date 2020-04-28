@@ -37,17 +37,37 @@ def click_button():  # Функция для кнопки "клик"
     if clicks == 15:
         level = 1
         print(Back.CYAN + 'Вы достигли', level ,'уровня!')
+        game1 = Tk()
+        def switch():
+            if btn2["state"] == "disabled":
+                btn2["state"] = "active"
+                b2["text"] = "Куплено!"
+            else:
+                b2["text"] = "Куплено!"
+        game1.title('Магазин')
+        game1.geometry("217x230")
+        #--Buttons
+        #b1 = Button(game1, text="Button", height=5, width=7)
+        #b1.place(x='20', y='0')    
+        b2 = Button(game1, text="Купить", command=switch)
+        b2.place(x='20', y='100')
+        game1.mainloop()
     if clicks == 100:
         print(Back.GREEN + "Открыто достижение: Первая соточка!")
+    if clicks == 10000:
         print("Открыто достижение: Достижение не открыто, хватит кликать, спать иди!!!")
-
+        
     def dclick_button():  # Функция для кнопки "двойной клик"
         global clicks
         clicks += 2
         clicker.title("Количество кликов: {}".format(clicks))
         if clicks == 15:
-            level += 1
+            level = 1
             print(Back.CYAN + 'Вы достигли', level ,'уровня!')
+        if level == 1:
+            game1 = Tk()
+            game1.title('Магазин')
+            game1.mainloop()
         if clicks == 10:
             print(Back.RED + 'Открыто достижение: Начинающий кликермен!')
         if clicks == 50:
@@ -57,7 +77,7 @@ def click_button():  # Функция для кнопки "клик"
         if clicks == 10000:
             print("Открыто достижение: Достижение не открыто, хватит кликать, спать иди!!!")
 
-
+    
 def dclick_button():  # Функция для кнопки "двойной клик"
     global clicks
     clicks += 2
@@ -110,12 +130,14 @@ btn5.place(x='55', y='200')
 btn6 = Button(clicker, text="Читы", command=cheats, highlightbackground='red', padx="20", pady="8", font="16")#Читы
 btn6.place(x='55', y='250') 
 
-btn2 = Button(clicker, text="Двойной клик", background="#222", foreground="#ccc", 
+btn2 = Button(clicker, text="Двойной клик", background="#222", foreground="#ccc", state=DISABLED,
         padx="20", pady="8", font="16", command=dclick_button)            #Дабл клик
 btn2.place(x='35', y='150')
 
+btn2['state'] = 'disabled'
+
 canvas =Canvas(clicker,width=1000,height=768)#Изображение
-image=ImageTk.PhotoImage(Image.open('walk.jpg'))
+image=ImageTk.PhotoImage(Image.open('M:/Git/IEM2/walk.jpg'))
 
 canvas.create_image(0,0,anchor=NW,image=image)
 canvas.pack()
