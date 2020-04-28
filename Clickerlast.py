@@ -97,24 +97,24 @@ clicker.geometry("1366x768")
 
 btn = Button(clicker, text="Клик", background="#444", foreground="#bbb",
              padx="20", pady="8", font="16", command=click_button)
-btn.place(x='110', y='100')
+btn.place(x='65', y='100')
 #if level == 1:
 
  
 btn5 = Button(clicker, text="Музон", command=call_funcs, padx="20", pady="8", font="16")#Музыка
-btn5.place(x='100', y='200') 
+btn5.place(x='55', y='200') 
 
 #photo = PhotoImage("M:/Git/IEM2/cheats.png") 
 #photoimage = photo.subsample(3, 3) 
 
 btn6 = Button(clicker, text="Читы", command=cheats, highlightbackground='red', padx="20", pady="8", font="16")#Читы
-btn6.place(x='100', y='250') 
+btn6.place(x='55', y='250') 
 
 btn2 = Button(clicker, text="Двойной клик", background="#222", foreground="#ccc", 
         padx="20", pady="8", font="16", command=dclick_button)            #Дабл клик
-btn2.place(x='75', y='150')
+btn2.place(x='35', y='150')
 
-canvas =Canvas(clicker,width=800,height=768)#Изображение
+canvas =Canvas(clicker,width=1000,height=768)#Изображение
 image=ImageTk.PhotoImage(Image.open('walk.jpg'))
 
 canvas.create_image(0,0,anchor=NW,image=image)
