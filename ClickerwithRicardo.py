@@ -248,7 +248,7 @@ btn = Button(clicker, text="Клик", background="#444", foreground="#bbb",
              padx="20", pady="8", font="16", command=click_button)
 btn.place(x='45', y='110')
 
-btn5 = Button(clicker, text="Музон", command=call_funcs, padx="20", pady="8", font="16")  # Музыка
+btn5 = Button(clicker, text="Музычка", command=call_funcs, padx="20", pady="8", font="16")  # Музыка
 btn5.place(x='35', y='235')
 btnf = Button(clicker, text="Сменить фон", background="#222", foreground="#ccc",
               padx="20", pady="8", font="16", command=callback)
