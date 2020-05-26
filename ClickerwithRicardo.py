@@ -4,7 +4,7 @@ import pygame
 import pyglet
 from PIL import ImageTk, Image, ImageSequence
 import random
-
+#q
 init()
 
 clicks = 0  # Переменная, в которой будут все клики
